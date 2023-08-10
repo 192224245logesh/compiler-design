@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+
+bool isComment(char *str) {
+    
+    if (strlen(str) >= 2 && str[0] == '/' && str[1] == '/') {
+        return true;
+    }
+
+    return false;
+}
+
+int main() {
+    char input[1000];
+    printf("Enter a line of code:\n");
+    fgets(input, sizeof(input), stdin);
+
+    if (isComment(input)) {
+        printf("The given code is a comment.\n");
+    } else {
+        printf("The given code is not a comment.\n");
+    }
+
+    return 0;
+}
